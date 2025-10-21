@@ -120,7 +120,7 @@
             <!-- 3. Comparativa de Mensualidades vs Invitados -->
             <div class="report-card">
                 <div class="card-header">
-                    <h2>Comparativa Mensualidades vs Invitados</h2>
+                    <h2>Comparativa Invitados vs Mensualidades</h2>
                 </div>
                 <div v-if="membershipVsGuestData && membershipVsGuestData.guestIncome !== null"
                     class="comparative-content">
@@ -128,13 +128,13 @@
                         <BarChart :data="membershipVsGuestChartData" :options="comparativeChartOptions" />
                     </div>
                     <div class="comparative-metrics">
-                        <div class="comparative-item">
+                        <!-- <div class="comparative-item">
                             <div class="comparative-label guest">
                                 <span class="color-dot"></span>
                                 Ingresos Invitados
                             </div>
                             <div class="comparative-value">{{ formatCurrency(membershipVsGuestData.guestIncome) }}</div>
-                        </div>
+                        </div> -->
                         <div class="comparative-item">
                             <div class="comparative-label guest">
                                 <span class="color-dot"></span>
@@ -239,9 +239,8 @@ export default {
             if (!this.membershipVsGuestData) {
                 return { labels: [], datasets: [] };
             }
-            const labels = ['Ingresos Invitados', 'Entradas Invitados', 'Entradas Mensualidades'];
+            const labels = ['Entradas Invitados', 'Entradas Mensualidades'];
             const data = [
-                this.membershipVsGuestData.guestIncome,
                 this.membershipVsGuestData.guestEntries,
                 this.membershipVsGuestData.membershipEntries,
             ];
@@ -250,12 +249,10 @@ export default {
                 datasets: [{
                     label: 'Comparativa',
                     backgroundColor: [
-                        'rgba(67, 97, 238, 0.8)',
                         'rgba(245, 158, 11, 0.8)',
                         'rgba(16, 185, 129, 0.8)'
                     ],
                     borderColor: [
-                        'var(--color-accent)',
                         'var(--color-warning)',
                         'var(--color-success)'
                     ],
@@ -316,11 +313,7 @@ export default {
                         borderWidth: 1,
                         callbacks: {
                             label: (context) => {
-                                const label = context.label.toLowerCase();
-                                if (label.includes('ingresos')) {
-                                    return `Ingresos: ${this.formatCurrency(context.raw)}`;
-                                }
-                                return `Entradas: ${context.raw}`;
+                                `Entradas: ${context.raw}`;
                             }
                         }
                     }
@@ -330,7 +323,6 @@ export default {
                     y: {
                         ticks: {
                             color: '#E0E0E0',
-                            callback: (value) => this.formatCurrency(value)
                         },
                         grid: {
                             color: '#707070'
@@ -475,7 +467,6 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos sin cambios, ya que son excelentes */
 .reportes-view {
     padding: 0;
 }

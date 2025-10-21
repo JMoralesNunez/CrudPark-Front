@@ -148,7 +148,7 @@ export default {
                 isActive: true,
             },
             editingOperator: {},
-            operatorApiUrl: 'https://parkingcrud.onrender.com/api/Operators'
+            operatorApiUrl: 'https://parkingcrud2-0.onrender.com/api/Operators'
         };
     },
     methods: {

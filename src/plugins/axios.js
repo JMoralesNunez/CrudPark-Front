@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://parkingcrud.onrender.com/api'; 
+const API_BASE_URL = 'https://parkingcrud2-0.onrender.com/api'; 
 
 const apiClient = axios.create({
     baseURL: API_BASE_URL,

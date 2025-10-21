@@ -93,7 +93,7 @@ export default {
             },
             loading: false,
             error: null,
-            dashboardApiUrl: 'https://parkingcrud.onrender.com/api/Dashboard/metrics'
+            dashboardApiUrl: 'https://parkingcrud2-0.onrender.com/api/Dashboard/metrics'
         };
     },
     methods: {

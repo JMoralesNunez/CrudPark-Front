@@ -44,12 +44,11 @@ const routes = [
     path: '/tarifas',
     name: 'tarifas',
     component: TarifasView
-  }
-  ,
+  },
   {
     path: '/reportes',
     name: 'reportes',
-    component: ReportesView
+    component: () => import(/* webpackChunkName: "reportes" */ '../views/ReportesView.vue')
   }
 ]
 
